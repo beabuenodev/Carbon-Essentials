@@ -12,11 +12,9 @@ public class HealCommand implements CommandExecutor {
     static final int HEALTH_FULL = 20;
 
     static final String PLAYER_FULL = "Your health bar has been filled up";
-    static final String PLAYER_NOPERM = "You don't have permission to do this";
-    static final String PLAYER_NOTONLINE =  "This player is not online";
 
-    static final String PERM_OWN = "basis.core.heal";
-    static final String PERM_OTHERS = "basis.core.heal.others";
+    static final String PERM_OWN = "carbonessentials.heal";
+    static final String PERM_OTHERS = "carbonessentials.others";
 
 
     @Override
@@ -30,7 +28,7 @@ public class HealCommand implements CommandExecutor {
                     p.sendMessage(ChatColor.GREEN + PLAYER_FULL);
                     return true;
                 } else {
-                    p.sendMessage(ChatColor.RED + PLAYER_NOPERM);
+                    p.sendMessage(CommandMessages.PLAYER_NOPERM);
                     return false;
                 }
             } else if (args.length == 1) { //There's a player to heal
@@ -42,11 +40,11 @@ public class HealCommand implements CommandExecutor {
                         p.sendMessage(ChatColor.GREEN + PLAYER_FULL);
                         return true;
                     } else {
-                        p.sendMessage(ChatColor.RED + PLAYER_NOTONLINE);
+                        p.sendMessage(CommandMessages.PLAYER_NOTONLINE);
                         return false;
                     }
                 } else {
-                    p.sendMessage(ChatColor.RED + PLAYER_NOPERM);
+                    p.sendMessage(CommandMessages.PLAYER_NOPERM);
                     return false;
                 }
             } else {

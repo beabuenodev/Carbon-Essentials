@@ -13,11 +13,10 @@ public class GamemodeCommand implements CommandExecutor {
     static final String GAMEMODE_CHANGED = "Gamemode changed to ";
     static final String GAMEMODE_NOTVALID = "Not a valid gamemode.";
     static final String PLAYER_NOTONLINE = "This player is not online";
-    static final String PLAYER_NOPERMISSION = "You don't have permission to do this";
 
-    static final String PERM_ALL = "basis.core.gm.*";
-    static final String PERM_PREFIX = "basis.core.gm.";
-    static final String PERM_OTHERS = "basis.core.gm.others";
+    static final String PERM_ALL = "carbonessentials.gm.*";
+    static final String PERM_PREFIX = "carbonessentials.gm.";
+    static final String PERM_OTHERS = "carbonessentials.gm.others";
 
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
@@ -35,7 +34,7 @@ public class GamemodeCommand implements CommandExecutor {
                         p.sendMessage(ChatColor.GREEN + GAMEMODE_CHANGED + gm.toString().toLowerCase());
                         return true;
                     } else {
-                        p.sendMessage(ChatColor.RED + PLAYER_NOPERMISSION);
+                        p.sendMessage(CommandMessages.PLAYER_NOPERM);
                         return false;
                     }
 
@@ -57,11 +56,11 @@ public class GamemodeCommand implements CommandExecutor {
                             p.sendMessage(ChatColor.GREEN + GAMEMODE_CHANGED + gm.toString().toLowerCase() + " for " + target.getDisplayName());
                             return true;
                         } else { //If the player is offline (target is null)
-                            p.sendMessage(ChatColor.RED + PLAYER_NOTONLINE);
+                            p.sendMessage(CommandMessages.PLAYER_NOTONLINE);
                             return false;
                         }
                     } else {
-                        p.sendMessage(ChatColor.RED + PLAYER_NOPERMISSION);
+                        p.sendMessage(CommandMessages.PLAYER_NOPERM);
                         return false;
                     }
 

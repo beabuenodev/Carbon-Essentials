@@ -12,11 +12,9 @@ public class FeedCommand implements CommandExecutor {
     static final int HUNGER_FULL = 20;
 
     static final String PLAYER_FULL = "Your hunger bar has been filled up";
-    static final String PLAYER_NOPERM = "You don't have permission to do this";
-    static final String PLAYER_NOTONLINE = "This player is not online";
 
-    static final String PERM_OWN = "basis.core.feed";
-    static final String PERM_OTHERS = "basis.core.feed.others";
+    static final String PERM_OWN = "carbonessentials.feed";
+    static final String PERM_OTHERS = "carbonessentials.feed.others";
 
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
@@ -29,7 +27,7 @@ public class FeedCommand implements CommandExecutor {
                     p.sendMessage(ChatColor.GREEN + PLAYER_FULL);
                     return true;
                 } else {
-                    p.sendMessage(ChatColor.RED + PLAYER_NOPERM);
+                    p.sendMessage(CommandMessages.PLAYER_NOPERM);
                     return false;
                 }
             } else if (args.length == 1) { //There's a player to feed
@@ -41,11 +39,11 @@ public class FeedCommand implements CommandExecutor {
                         p.sendMessage(ChatColor.GREEN + PLAYER_FULL);
                         return true;
                     } else {
-                        p.sendMessage(ChatColor.RED + PLAYER_NOTONLINE);
+                        p.sendMessage(CommandMessages.PLAYER_NOTONLINE);
                         return false;
                     }
                 } else {
-                    p.sendMessage(ChatColor.RED + PLAYER_NOPERM);
+                    p.sendMessage(CommandMessages.PLAYER_NOPERM);
                     return false;
                 }
             } else {
