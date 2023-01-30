@@ -2,7 +2,7 @@ name: Carbon Essentials
 version: '${project.version}'
 main: dev.beabueno.carbonessentials.CarbonEssentials
 api-version: 1.18
-prefix: BASIS
+prefix: CARBON-ESSENTIALS
 authors: [ Bea ]
 description: A Core plugin
 commands:
@@ -18,5 +18,11 @@ commands:
     usage: 'USAGE: /heal <player>'
   message:
     usage: 'USAGE: /message <player> [message]'
+    aliases:
+      - msg
   reply:
     usage: 'USAGE: /reply [message]'
+    aliases:
+      - r
+  kick:
+    usage: 'USAGE: /kick <player> [reason]'

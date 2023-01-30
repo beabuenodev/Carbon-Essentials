@@ -4,9 +4,7 @@ import dev.beabueno.carbonessentials.commands.*;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public final class CarbonEssentials extends JavaPlugin {
-
     MessageManager messagemanager;
-
     @Override
     public void onEnable() {
         // Plugin startup logic
@@ -28,6 +26,8 @@ public final class CarbonEssentials extends JavaPlugin {
 
         getCommand("message").setExecutor(new MessageCommand(messagemanager));
         getCommand("reply").setExecutor(new ReplyCommand(messagemanager));
+
+        getCommand("kick").setExecutor(new KickCommand());
     }
 
     public void constructManager() {

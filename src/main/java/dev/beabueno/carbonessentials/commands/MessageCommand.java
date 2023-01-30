@@ -55,7 +55,6 @@ public class MessageCommand implements CommandExecutor {
             } else {
                 player.sendMessage(PLAYER_NOPERM);
             }
-
         } else {
 
         }
