@@ -27,18 +27,15 @@ public class BanCommand implements CommandExecutor {
                 OfflinePlayer t = Bukkit.getOfflinePlayer(args[1]);
                 if (args.length == 1) {
                     Bukkit.getBanList(BanList.Type.NAME).addBan(t.getName(), NO_REASON, null, null);
-                    if (Bukkit.getPlayer(t.getName()) != null) {
-                        ((Player) t).kickPlayer(TARGET_BANNED);
-                    }
                 } else {
                     StringBuilder builder = new StringBuilder();
                     for (int i = 1; i < args.length; i++) {
                         builder.append(args[i]).append(" ");
                     }
                     Bukkit.getBanList(BanList.Type.NAME).addBan(t.getName(), builder.toString(), null, null);
-                    if (Bukkit.getPlayer(t.getName()) != null) {
-                        ((Player) t).kickPlayer(TARGET_BANNED);
-                    }
+                }
+                if (Bukkit.getPlayer(t.getName()) != null) {
+                    ((Player) t).kickPlayer(TARGET_BANNED);
                 }
             } else {
                 if (sender instanceof Player) {
